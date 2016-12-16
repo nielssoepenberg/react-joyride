@@ -672,7 +672,7 @@ export default class Joyride extends React.Component {
       const offsetX = nested.get(step, 'style.beacon.offsetX') || 0;
       const offsetY = nested.get(step, 'style.beacon.offsetY') || 0;
       const position = this.calcPosition(step);
-      const body = document.body.getBoundingClientRect();
+      const body = document.querySelector('.joyride').getBoundingClientRect();
       const component = this.getElementDimensions(showTooltip ? '.joyride-tooltip' : '.joyride-beacon');
       const rect = target.getBoundingClientRect();
 
@@ -726,7 +726,7 @@ export default class Joyride extends React.Component {
   calcPosition(step) {
     const { tooltipOffset } = this.props;
     const showTooltip = this.state.tooltip ? true : this.state.showTooltip;
-    const body = document.body.getBoundingClientRect();
+    const body = document.querySelector('.joyride').getBoundingClientRect();
     const target = document.querySelector(step.selector);
     const component = this.getElementDimensions((showTooltip ? '.joyride-tooltip' : '.joyride-beacon'));
     const rect = target.getBoundingClientRect();
